@@ -113,9 +113,10 @@ async function fetchReturnedParticipants() {
       }
     }
   );
-  console.log('submissions:', res)
 
   const data = await res.json();
+
+  console.log('submissions:', data)
 
   if (!data.results) {
     return [];
