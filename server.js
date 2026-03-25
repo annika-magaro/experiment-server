@@ -11,7 +11,7 @@ app.use(cors());
 // =====================
 const TOTAL_CONDITIONS = 4;
 const PROLIFIC_API_TOKEN = process.env.PROLIFIC_API_TOKEN;
-const STUDY_ID = process.env.STUDY_ID;
+const STUDY_ID = '69bc49329ec7bbbe70b0a47a' //process.env.STUDY_ID;
 const MONGO_URI = process.env.MONGO_URI;
 
 // =====================
