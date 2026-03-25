@@ -114,11 +114,12 @@ async function fetchReturnedParticipants() {
     }
   );
   console.log('submissions:', res)
-  if (!res) {
-    return [];
-  }
 
   const data = await res.json();
+
+  if (!data.results) {
+    return [];
+  }
 
   return data.results
     .filter(sub =>
