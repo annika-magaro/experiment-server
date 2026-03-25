@@ -79,21 +79,21 @@ app.post("/assign_with_refresh", async (req, res) => {
 
       await assignments.insertOne({
         participantId,
-        condition: retry.value.condition,
+        condition: retry.condition,
         timestamp: new Date()
       });
 
-      return res.json({ condition: retry.value.condition });
+      return res.json({ condition: retry.condition });
     }
 
     // 3. save assignment
     await assignments.insertOne({
       participantId,
-      condition: result.value.condition,
+      condition: result.condition,
       timestamp: new Date()
     });
 
-    res.json({ condition: result.value.condition });
+    res.json({ condition: result.condition });
 
   } catch (err) {
     console.error(err);
