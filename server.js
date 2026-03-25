@@ -62,7 +62,7 @@ app.post("/assign_with_refresh", async (req, res) => {
     );
     console.log("result:", result);
 
-    if (!result.value) {
+    if (!result) {
       // try cleanup once
       await cleanupReturnedParticipants();
 
@@ -73,7 +73,7 @@ app.post("/assign_with_refresh", async (req, res) => {
       );
       console.log("retry:", retry);
 
-      if (!retry.value) {
+      if (!retry) {
         return res.json({ condition: null });
       }
 
