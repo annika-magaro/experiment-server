@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const fetch = require("node-fetch");
 const { MongoClient } = require("mongodb");
 
 const app = express();
@@ -61,6 +60,7 @@ app.post("/assign_with_refresh", async (req, res) => {
       { $set: { assigned: true, assigned_to: participantId } },
       { returnDocument: "after" }
     );
+    console.log("result:", result);
 
     if (!result.value) {
       // try cleanup once
@@ -71,6 +71,7 @@ app.post("/assign_with_refresh", async (req, res) => {
         { $set: { assigned: true, assigned_to: participantId } },
         { returnDocument: "after" }
       );
+      console.log("retry:", retry);
 
       if (!retry.value) {
         return res.json({ condition: null });
