@@ -106,7 +106,7 @@ app.post("/assign_with_refresh", async (req, res) => {
 // =====================
 async function fetchReturnedParticipants() {
   const res = await fetch(
-    `https://api.prolific.co/api/v1/submissions/?study=${STUDY_ID}`,
+    `https://api.prolific.com/api/v1/submissions/?study=${STUDY_ID}`,
     {
       headers: {
         Authorization: `Token ${PROLIFIC_API_TOKEN}`
