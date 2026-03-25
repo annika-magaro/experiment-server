@@ -116,8 +116,6 @@ async function fetchReturnedParticipants() {
 
   const data = await res.json();
 
-  console.log('submissions:', data)
-
   if (!data.results) {
     return [];
   }
@@ -134,6 +132,8 @@ async function cleanupReturnedParticipants() {
     const returnedIds = await fetchReturnedParticipants();
 
     if (returnedIds.length === 0) return;
+
+    console.log(returnedIds)
 
     // free conditions
     await conditions.updateMany(
