@@ -9,7 +9,7 @@ app.use(cors());
 // =====================
 // CONFIG
 // =====================
-const TOTAL_CONDITIONS = 4;
+const TOTAL_CONDITIONS = 400;
 const PROLIFIC_API_TOKEN = process.env.PROLIFIC_API_TOKEN;
 const STUDY_ID = process.env.STUDY_ID;
 const MONGO_URI = process.env.MONGO_URI;
