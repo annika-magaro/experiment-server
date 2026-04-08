@@ -11,7 +11,7 @@ app.use(cors());
 // =====================
 const TOTAL_CONDITIONS = 4;
 const PROLIFIC_API_TOKEN = process.env.PROLIFIC_API_TOKEN;
-const STUDY_ID = '69bc49329ec7bbbe70b0a47a' //process.env.STUDY_ID;
+const STUDY_ID = process.env.STUDY_ID;
 const MONGO_URI = process.env.MONGO_URI;
 
 // =====================
@@ -22,7 +22,7 @@ let db, conditions, assignments;
 
 async function initDB() {
   await client.connect();
-  db = client.db("experiment");
+  db = client.db("experiment_2s");
 
   conditions = db.collection("conditions");
   assignments = db.collection("assignments");
@@ -31,7 +31,7 @@ async function initDB() {
   const count = await conditions.countDocuments();
   if (count === 0) {
     const docs = [];
-    for (let i = 1; i <= TOTAL_CONDITIONS; i++) {
+    for (let i = 0; i < TOTAL_CONDITIONS; i++) {
       docs.push({ condition: i, assigned: false });
     }
     await conditions.insertMany(docs);
