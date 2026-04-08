@@ -29,9 +29,9 @@ async function initDB() {
 
   // initialize conditions once
   const count = await conditions.countDocuments();
-  if (count === 0) {
+  if (count < TOTAL_CONDITIONS) {
     const docs = [];
-    for (let i = 0; i < TOTAL_CONDITIONS; i++) {
+    for (let i = count; i < TOTAL_CONDITIONS; i++) {
       docs.push({ condition: i, assigned: false });
     }
     await conditions.insertMany(docs);
