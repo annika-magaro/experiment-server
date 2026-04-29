@@ -13,6 +13,7 @@ const TOTAL_CONDITIONS = 400;
 const PROLIFIC_API_TOKEN = process.env.PROLIFIC_API_TOKEN;
 const STUDY_ID = process.env.STUDY_ID;
 const MONGO_URI = process.env.MONGO_URI;
+const DB_NAME = process.env.DB_NAME;
 
 // =====================
 // DB SETUP
@@ -22,7 +23,7 @@ let db, conditions, assignments;
 
 async function initDB() {
   await client.connect();
-  db = client.db("experiment_2s");
+  db = client.db(DB_NAME);
 
   conditions = db.collection("conditions");
   assignments = db.collection("assignments");
